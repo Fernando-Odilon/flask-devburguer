@@ -1,0 +1,287 @@
+@media(max-width: 1200px){
+   
+    .products{
+    background-color: var(--bg-gray-light);
+    padding: 0;
+    width: auto;
+    }
+
+    .products__container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 0;
+        gap: 10px;
+        padding-bottom: 40px;
+    }
+
+    .products__title, .categories__title{
+        font-family:'Oswald';
+        text-align: center;
+        font-size: 2.2rem;
+        color: var(--text-dark-blue);
+        padding: 20px 0;
+
+    }
+
+    .products__grid{
+        display: grid;
+        max-width: 1250px;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        justify-items: center;
+        gap: 20px;
+
+    }
+
+    .card{
+        width: 90%;
+        box-shadow: 0 1px 10px rgba(74, 74, 74, 0.2);
+        height: 480px;
+        display: flex;
+        border-radius: 6px;
+        flex-direction: column;
+        margin: 0;
+        background-color: var(--bg-light);
+
+    }
+
+    .card__image-wrapper{
+        border-radius: 6px 6px 0 0;
+        width: 100%;
+        height: 50%;
+
+
+    }
+
+    .card__image-wrapper > .card__image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .card__body{
+        border-radius: 15px;
+        height: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 30px;
+    }
+
+    .card__title{
+        width: 100%;
+        font-family: "Oswald";
+        font-size: 1.7rem;
+        color: var(--text-dark-blue);
+    }
+
+    .card__description{
+        font-family: Roboto;
+        font-size: 1.1rem;
+
+    }
+
+    .card__footer{
+        border-top: 3px gray solid;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+
+    }
+
+    .card__price{
+        font-size: 1.4rem;
+        font-family: "Roboto";
+        font-weight: 600;
+        color: var(--primary-red);
+        width: 100%;
+    }
+
+    .button{
+        font-family: "Roboto";
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 7px;
+        border: none;
+
+    }
+
+    .button--small{
+        font-size: 1rem;
+        padding: 5px 20px;
+        background-color: var(--accent-light-orange);
+    }
+
+    .button--primary{
+        background-color: var(--primary-red);
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: var(--text-light);
+    }
+}
+
+@media(max-width: 700px){
+    .header__toggle{
+        display: block;
+        position: absolute;
+        right: 10px;
+    }
+
+
+    .header__container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    }
+   .header__nav{
+    flex-wrap: wrap;
+    
+   }
+
+   .header__menu{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    
+   }
+    .header__toggle{
+        display: block;
+    }
+    
+    .header__item{
+        width: 100%;
+        display: block
+    
+    }
+    
+    .products{
+    background-color: var(--bg-gray-light);
+    padding: 0;
+    width: auto;
+}
+
+.products__container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 10px;
+    padding-bottom: 40px;
+}
+
+.products__title, .categories__title{
+    font-family:'Oswald';
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--text-dark-blue);
+    padding: 20px 0;
+
+}
+
+.products__grid{
+    display: grid;
+    max-width: 1250px;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0;
+    justify-items: center;
+    gap: 20px;
+
+}
+
+.card{
+    width: 90%;
+    box-shadow: 0 1px 10px rgba(74, 74, 74, 0.2);
+    height: 480px;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: column;
+    margin: 0;
+    background-color: var(--bg-light);
+
+}
+
+.card__image-wrapper{
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    height: 50%;
+
+
+}
+
+.card__image-wrapper > .card__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+}
+
+.card__body{
+    border-radius: 15px;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 30px;
+}
+
+.card__title{
+    width: 100%;
+    font-family: "Oswald";
+    font-size: 1.7rem;
+    color: var(--text-dark-blue);
+}
+
+.card__description{
+    font-family: Roboto;
+    font-size: 1.1rem;
+
+}
+
+.card__footer{
+    border-top: 3px gray solid;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+
+}
+
+.card__price{
+    font-size: 1.4rem;
+    font-family: "Roboto";
+    font-weight: 600;
+    color: rgb(252, 65, 65);
+    width: 100%;
+}
+
+.button{
+    font-family: "Roboto";
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 7px;
+    border: none;
+
+}
+
+.button--small{
+    font-size: 1rem;
+    padding: 5px 20px;
+    background-color: var(--accent-light-orange);
+}
+
+.button--primary{
+    background-color: var(--primary-red);
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+
+}

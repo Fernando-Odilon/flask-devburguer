@@ -1,0 +1,33 @@
+:root{
+    /* ====== CORES PRINCIPAIS ====== */
+    --primary-red: #e63946;        /* Botões, destaques */
+    --primary-blue: #0a1a2f;       /* Header/Footer escuro (quase azul marinho) */
+    --primary-orange: #f4a261;     /* Botões "EU QUERO" */
+
+    /* ====== CORES DE APOIO ====== */
+    --accent-yellow: #f4d35e;      /* Detalhes quentes / hover */
+    --accent-green: #2a9d8f;       /* Para pratos leves */
+    --accent-light-orange: #f6bc66;/* Segundo tom laranja */
+
+    /* ====== BACKGROUNDS ====== */
+    --bg-light: #f1f8f3;           /* Fundo dos destaques (verde bem claro) */
+    --bg-white: #ffffff;
+    --bg-gray-light: #e0dfdf;
+    --bg-dark-overlay: rgba(0, 0, 0, 0.6); /* Overlay do banner */
+
+    /* ====== TEXTOS ====== */
+    --text-dark: #222222;
+    --text-light: #ffffff;
+    --text-gray: #545454;
+    --text-dark-blue: #201866; 
+
+    /* ====== BORDAS E LINHAS ====== */
+    --border-light: #e4e4e4;
+    --border-gray: #cccccc;
+
+    /* ====== SOMBREAMENTOS ====== */
+    --shadow-default: 0px 4px 12px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0px 2px 10px rgba(0, 0, 0, 0.15);
+
+
+}

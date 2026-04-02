@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block css_adicional %}
+<link rel="stylesheet" href="/static/src/css/main_page2.css">
+{% endblock %}
+
+{% block conteudo %}
+
+<section class="product-details">
+    <div class="product-details__container">
+        <div class="product-details__gallery">
+            <div class="gallery__main">
+                <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800" alt="{{ nome_produto }}" class="gallery__img--large">
+            </div>
+            <div class="gallery__thumbs">
+                <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Vista 1" class="gallery__thumb">
+                <img src="https://images.pexels.com/photos/1108117/pexels-photo-1108117.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Vista 2" class="gallery__thumb">
+                <img src="https://images.pexels.com/photos/156114/pexels-photo-156114.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Vista 3" class="gallery__thumb">
+            </div>
+        </div>
+
+        <div class="product-details__info">
+            <nav class="breadcrumb">
+                <a href="/">Home</a> / <a href="#menu">Hambúrgueres</a> / Classic Dev
+            </nav>
+            
+            <h1 class="product-details__title">Classic Dev</h1>
+            <p class="product-details__description">
+                O nosso queridinho! O Classic Dev é montado em um pão brioche artesanal selado na manteiga, 
+                com um blend de carne bovina de 180g sempre suculento, queijo cheddar inglês derretido, 
+                picles da casa e nossa maionese secreta de ervas. 
+                <br><br>
+                Ideal para quem busca o equilíbrio perfeito entre o clássico e o gourmet.
+            </p>
+
+            <div class="product-details__price-wrapper">
+                <span class="product-details__price">R$ 25,00</span>
+                <span class="product-details__status">Disponível em estoque</span>
+            </div>
+
+            <div class="product-details__actions">
+                <div class="quantity-selector">
+                    <button class="qty-btn">-</button>
+                    <input type="number" value="1" min="1" class="qty-input">
+                    <button class="qty-btn">+</button>
+                </div>
+                <button class="button button--primary button--large">ADICIONAR AO CARRINHO</button>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <a href="/" class="header__link" style="margin-left: 0; font-size: 1rem;">← Voltar para o menu</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

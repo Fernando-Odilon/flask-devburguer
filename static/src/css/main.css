@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header {
+    padding: 20px;
+    background-color: var(--bg-white);
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.header__logo {
+    color: var(--primary-red);
+    font-family: "Oswald";
+    font-size: 1.7rem;
+}
+
+.header__menu {
+    display: flex;
+    gap: 20px;
+}
+
+.header__link {
+    margin-left: 10px;
+    color: var(--text-gray);
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.header__toggle {
+    display: none;
+}
+
+.banner {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.664), rgba(0, 0, 0, 0.664)), 
+                url(https://images.pexels.com/photos/24245659/pexels-photo-24245659.jpeg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.banner__title {
+    font-family: 'Oswald';
+    font-size: 4rem;
+    line-height: 1.2;
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+.banner__title:hover {
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.438);
+    letter-spacing: 10px;
+    font-size: 5rem;
+}
+
+.banner__title--highlight {
+    color: var(--primary-red);
+}
+
+.banner__subtitle {
+    font-size: 1.3rem;
+    font-family: 'Roboto';
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+.categories__title {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Oswald';
+    font-size: 2.2rem;
+    color: var(--text-dark-blue);
+}
+
+.categories__list {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.category-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    width: 200px;
+    height: 250px;
+    border: 1px solid rgb(215, 214, 214);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+    transform: scale(1.1);
+    border: 1px solid var(--primary-red);
+}
+
+.category-item__img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.products {
+    background-color: var(--bg-gray-light);
+    width: 100%;
+}
+
+.products__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    gap: 50px;
+    width: 100%;
+}
+
+.products__title {
+    font-family: 'Oswald';
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--text-dark-blue);
+}
+
+.products__grid {
+    display: grid;
+    max-width: 1200px;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    box-shadow: 0 1px 10px rgba(74, 74, 74, 0.2);
+    height: 480px;
+    display: flex;
+    border-radius: 6px;
+    flex-direction: column;
+    background-color: var(--bg-light);
+}
+
+.card__image-wrapper {
+    width: 100%;
+    height: 50%;
+}
+
+.card__image-wrapper > .card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+}
+
+.card__body {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.card__title {
+    font-family: "Oswald";
+    font-size: 1.7rem;
+    color: var(--text-dark-blue);
+}
+
+.card__description {
+    font-family: 'Roboto';
+    font-size: 1.1rem;
+}
+
+.card__footer {
+    border-top: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.card__price {
+    font-size: 1.4rem;
+    font-family: "Roboto";
+    font-weight: 600;
+    color: rgb(252, 65, 65);
+}
+
+.button {
+    font-family: "Roboto";
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 7px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button--small {
+    font-size: 1rem;
+    padding: 5px 20px;
+    background-color: var(--accent-light-orange);
+    color: black;
+}
+
+.button--primary {
+    background-color: var(--primary-red);
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-blue);
+    padding: 40px;
+    width: 100%;
+}
+
+.footer__text {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+}

@@ -1,0 +1,139 @@
+/* Detalhes do Produto */
+.product-details {
+    padding: 60px 0;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-white);
+}
+
+.product-details__container {
+    width: 90%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 50px;
+}
+
+/* Galeria */
+.gallery__main {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.gallery__img--large {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery__thumbs {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery__thumb {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    border: 2px solid transparent;
+}
+
+.gallery__thumb:hover {
+    border-color: var(--primary-red);
+    opacity: 0.8;
+}
+
+/* Info */
+.breadcrumb {
+    font-family: 'Roboto';
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-details__title {
+    font-family: 'Oswald';
+    font-size: 3rem;
+    color: var(--text-dark-blue);
+    margin-bottom: 15px;
+}
+
+.product-details__description {
+    font-family: 'Roboto';
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.product-details__price {
+    font-size: 2.2rem;
+    font-family: 'Oswald';
+    color: var(--primary-red);
+    font-weight: bold;
+}
+
+.product-details__status {
+    display: block;
+    color: #27ae60;
+    font-family: 'Roboto';
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Ações */
+.product-details__actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.quantity-selector {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.qty-btn {
+    padding: 10px 15px;
+    background: #f8f8f8;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    font-family: 'Roboto';
+}
+
+.button--large {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .product-details__title {
+        font-size: 2.2rem;
+    }
+}
