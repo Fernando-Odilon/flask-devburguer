@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS burguer(
 codigo INT PRIMARY KEY AUTO_INCREMENT,
 produto VARCHAR(50),
 descricao VARCHAR(200),
-preco DOUBLE(7, 2),
+preco DECIMAL(7, 2),
 destaque bool default 0,
 foto VARCHAR(200),
 disponibilidade bool default 1);
