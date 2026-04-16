@@ -3,7 +3,7 @@ from database.conexao import conectar
 
 def recuperar_users(usuario, password):
     conexao, cursor = conectar()
-    cursor.execute('SELECT codigo, user_name, user_password FROM usuario WHERE user_name = %s AND user_password', (usuario, password))
+    cursor.execute('SELECT codigo, user_name, user_password FROM usuario WHERE user_name = %s AND user_password = %s', (usuario, password))
     user = cursor.fetchone()
     if user:
         return user
