@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block css_adicional %}
+<link rel="stylesheet" href="{{url_for('static', filename = 'src/css/perfil.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+<section class="profile-section">
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1 class="profile-title">Meu Perfil</h1>
+            <a href="{{ url_for('logout') }}" class="button button--secondary">Sair</a>
+        </div>
+
+        <div class="profile-content">
+            <aside class="profile-sidebar">
+                <nav class="profile-nav">
+                    <a href="#" class="profile-nav__link active">Dados Pessoais</a>
+                    <a href="#" class="profile-nav__link">Meus Pedidos</a>
+                    <a href="#" class="profile-nav__link">Endereços</a>
+                </nav>
+            </aside>
+
+            <main class="profile-main">
+                <form action="/atualizar-perfil" method="POST" class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" value="{{ usuario.nome }}" name="nome">
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" value="{{ usuario.email }}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" value="{{ usuario.telefone }}" name="telefone">
+                    </div>
+
+                    <button type="submit" class="button button--primary">SALVAR ALTERAÇÕES</button>
+                </form>
+            </main>
+        </div>
+    </div>
+</section>
+{% endblock %}

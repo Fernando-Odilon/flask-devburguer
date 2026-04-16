@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block css_adicional %}
-<link rel="stylesheet" href="/static/src/css/produto.css">
+<link rel="stylesheet" href="{{url_for('static', filename = 'src/css/produto.css')}}">
 {% endblock %}
 
 {% block conteudo %}
