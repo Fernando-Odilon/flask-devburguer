@@ -46,6 +46,21 @@
           </ul>
         </nav>
 
+        <div class="header__user">
+          {% if usuario %}
+              <div class="user-info">
+                  <span>Olá, <strong>{{ usuario.nome }}</strong></span>
+                  <a href="/logout" class="header__icon">
+                      <span class="material-symbols-outlined">logout</span>
+                  </a>
+              </div>
+          {% else %}
+              <div class="auth-actions">
+                  <a href="/login" class="header__link button button--small">Login</a>
+                  <a href="/cadastrar" class="button button--small">Cadastro</a>
+              </div>
+          {% endif %}
+        </div>
         <div class="header__social">
           <a href="#" class="header__icon"
             ><span class="material-symbols-outlined">thumb_up</span></a

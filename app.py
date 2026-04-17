@@ -41,12 +41,15 @@ def logar_user():
     usuario = request.form.get('user')
     senha = request.form.get('password')
     user = recuperar_users(usuario, senha)
-    print(user)
     if user:
         session['usuario_logado'] = user
-        return render_template('perfil_usuario.html', user = user)
+        return redirect('/perfil')
     return redirect('/login')
 
+@app.route('/perfil')
+def perfil_user():
+    user = session['usuario_logado']
+    return render_template('perfil_usuario.html', usuario = user)
 
     
 
