@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block css_adicional %}
+<link rel="stylesheet" href="{{url_for('static', filename = 'src/css/pedidos.css')}}">
+{% endblock %}
+
+{% block conteudo %}
+<div class="profile-page-wrapper"> 
+    <main class="profile-main">
+        <h2 class="section-subtitle">Histórico de Pedidos</h2>
+        <div class="orders-list">
+            {% for pedido in pedidos %}
+            <div class="order-card">
+                <div class="order-info">
+                    <span class="order-id">Pedido #{{ pedido.id }}</span>
+                    <span class="order-date">{{ pedido.data }}</span>
+                </div>
+                <div class="order-details">
+                    <p>Status: <strong class="order-status status-{{ pedido.status_classe }}">{{ pedido.status }}</strong></p>
+                    <p>Total: <strong class="order-total">R$ {{ pedido.total }}</strong></p>
+                </div>
+                <a href="#" class="btn-perfil btn-perfil--outline">Ver Detalhes</a>
+            </div>
+            {% else %}
+            <p class="empty-msg">Você ainda não realizou nenhum pedido.</p>
+            {% endfor %}
+        </div>
+    </main>
+</div>
+{% endblock %}

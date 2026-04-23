@@ -1,0 +1,101 @@
+/* Container principal para isolar o escopo */
+.profile-main {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+/* Lista de Pedidos */
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Card de Pedido com especificidade reforçada */
+.profile-main .order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fff;
+}
+
+.profile-main .order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Colunas do Card */
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.order-id {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.order-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Status e Cores Dinâmicas */
+.status-concluido { color: #27ae60 !important; }
+.status-pendente { color: #f39c12 !important; }
+.status-cancelado { color: #e74c3c !important; }
+
+/* Botão específico do perfil para evitar conflito com botões globais */
+.profile-main .button--outline {
+    padding: 10px 20px;
+    border: 2px solid #3498db;
+    color: #3498db;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.profile-main .button--outline:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* Mensagem de Vazio */
+.empty-msg {
+    text-align: center;
+    padding: 40px;
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .profile-main .order-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .profile-main .button--outline {
+        width: 100%;
+        text-align: center;
+    }
+}

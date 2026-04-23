@@ -45,14 +45,23 @@ def logar_user():
         session['usuario_logado'] = user
         return redirect('/perfil')
     return redirect('/login')
+@app.route('/logout')
+def deslogar():
+    session.clear()
+    return redirect('/')
 
 @app.route('/perfil')
 def perfil_user():
     user = session['usuario_logado']
     return render_template('perfil_usuario.html', usuario = user)
 
-    
+@app.route('/pedidos')
+def historico_pedidos():
+    return render_template('hist_pedidos.html')
 
+@app.route('/carrinho')
+def carrinho():
+    return render_template('carrinho.html')
 
 app.run(host='0.0.0.0', port=8080, debug=True)
 

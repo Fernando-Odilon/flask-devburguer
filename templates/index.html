@@ -74,4 +74,29 @@
         </div>
       </div>
     </section>
+    <aside class="cart-sidebar" >
+        <div class="cart-sidebar__header">
+            <h2 class="cart-sidebar__title">Meu Carrinho</h2>
+            <span class="material-symbols-outlined cart-sidebar__close">close</span>
+        </div>
+
+        <div class="cart-sidebar__content" id="carrinho">
+            <div style="width: 100%;" class="cart-item" >
+                <div class="cart-item__info">
+                    <p class="cart-item__name">Classic Dev</p>
+                    <p class="cart-item__price">R$ 29,90</p>
+                </div>
+                <button class="cart-item__remove">Remover</button>
+            </div>
+        </div>
+
+        <div class="cart-sidebar__footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total__value">R$ 0,00</span>
+            </div>
+            <button class="button button--primary cart-checkout-btn">Finalizar Pedido</button>
+        </div>
+    </aside>
+    <script src="../static/src/js/carrinho.js"></script>
     {% endblock %}
