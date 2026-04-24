@@ -394,19 +394,29 @@ a {
 
 /* CARRINHO LATERAL - Implementação Fixa */
 
+.button-abrir-carrinho:hover{
+    transform: scale(1.1);
+    transition: ease-in 0.2s;
+    color: #e20d0d;
+}
+
 .cart-sidebar {
     position: fixed;
     top: 0;
     right: 0;
     width: 400px;
     height: 100vh;
-    background-color: var(--bg-white);
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-light);
     z-index: 1000;
     display: flex;
     flex-direction: column;
+    border-left: 4px solid var(--text-dark-blue);
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    border-left: 4px solid var(--primary-red);
+}
+.carrinho-aberto {
+    transform: translateX(0);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .cart-sidebar__header {

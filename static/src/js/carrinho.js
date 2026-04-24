@@ -1,6 +1,24 @@
 
 
 
+const abrirFecharCarrinho = () => {
+    const carrinho = document.getElementById('secao-carrinho');
+    console.log(carrinho.classList)
+    const btnFechar = document.getElementById('fechar');
+    const btnAbrir = document.getElementById('cart');
+    // Função para abrir
+btnAbrir.addEventListener('click', () => {
+    console.log(carrinho)
+    carrinho.classList.add('carrinho-aberto');
+});
+
+// Função para fechar
+btnFechar.addEventListener('click', () => {
+    carrinho.classList.remove('carrinho-aberto');
+});
+}
+
+abrirFecharCarrinho()
 
 const carregarCarrinho = async () => {
 
@@ -49,7 +67,7 @@ const deleteItemCarrinho = async (id) => {
         
     }
 }
-carregarCarrinho()
+
 
 
 
