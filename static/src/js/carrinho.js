@@ -1,15 +1,18 @@
 
 
-
 const abrirFecharCarrinho = () => {
     const carrinho = document.getElementById('secao-carrinho');
     console.log(carrinho.classList)
     const btnFechar = document.getElementById('fechar');
     const btnAbrir = document.getElementById('cart');
+    
+
     // Função para abrir
 btnAbrir.addEventListener('click', () => {
     console.log(carrinho)
     carrinho.classList.add('carrinho-aberto');
+    carregarCarrinho()
+
 });
 
 // Função para fechar
@@ -18,11 +21,12 @@ btnFechar.addEventListener('click', () => {
 });
 }
 
+
 abrirFecharCarrinho()
 
 const carregarCarrinho = async () => {
 
-    const resposta = await fetch('http://10.110.134.2:8080/api/get/carrinho');
+    const resposta = await fetch('/api/get/carrinho');
 
     if (!resposta.ok){
         alert('ERRO AO CARREGAR CARRINHO');
@@ -33,15 +37,14 @@ const carregarCarrinho = async () => {
     const carrinho = document.getElementById('carrinho');
 
     carrinho.innerHTML = '';
-    let precoTotal = 0
     dados.forEach((dado) => {
         let linha = `
          <div style="width: 100%;" class="cart-item" >
                 <div class="cart-item__info">
-                    <p class="cart-item__name">${dado.nome}</p>
+                    <p class="cart-item__name">${dado.produto}</p>
                     <p class="cart-item__price">R$ ${dado.preco}</p>
                 </div>
-                <button class="cart-item__remove">
+                <button id="${dado.codigo_itens_carrinho}" class="cart-item__remove">
                     <span class="material-symbols-outlined">delete</span>
                 </button>
             </div>
@@ -49,27 +52,31 @@ const carregarCarrinho = async () => {
         carrinho.innerHTML += linha;
         
 
-        precoTotal += dado.preco
     })
-    document.querySelector('.cart-total__value').textContent = precoTotal.toFixed(2).replace('.', ',')
+    
     } 
-
+    const btnRemoverItem = document.querySelectorAll('.cart-item__remove');
+    console.log(btnRemoverItem)
+    btnRemoverItem.forEach((btn => {
+        btn.addEventListener('click', () => {deleteItemCarrinho(btn.getAttribute('id'))})}))
 };
 
 const deleteItemCarrinho = async (id) => {
-    const resposta = await fetch(`http://10.110.134.2:8080/api/get/carrinho/${id}`, {method : 'DELETE'});
-
+    const resposta = await fetch(`/api/delete/carrinho`, {method : 'DELETE',
+        headers : {
+            'Content-Type': 'application/json' // ESTA LINHA É A SOLUÇÃO DO ERRO 415
+        },
+        body : JSON.stringify({codigo : id})
+    });
+    
     if (!resposta.ok){
         alert('Erro na hora de Deletar pai')
     }
     else {
-        alert('Deu bom')
+        carregarCarrinho()
         
     }
 }
-
-
-
 
 
 

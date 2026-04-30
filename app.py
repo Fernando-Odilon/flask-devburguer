@@ -1,6 +1,8 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session, jsonify
 from model.burguer import recuperar_produtos
 from model.usuario import cadastrar_usuario, recuperar_users
+from model.carrinho import buscar_carrinho, remover_item_carrinho
+
 app = Flask(__name__)
 
 app.secret_key = "MEGAMATS"
@@ -55,13 +57,23 @@ def perfil_user():
     user = session['usuario_logado']
     return render_template('perfil_usuario.html', usuario = user)
 
-@app.route('/pedidos')
-def historico_pedidos():
-    return render_template('hist_pedidos.html')
+@app.route("/api/get/carrinho", methods = ["GET"])
+def api_get_carrinho():
+    if 'usuario_logado' in session:
+        carrinho = buscar_carrinho(session['usuario_logado']['user_name'])
+        return jsonify(carrinho), 200
+    else:
+        return jsonify({"message" : "Usuário não logado"}), 401
 
-@app.route('/carrinho')
-def carrinho():
-    return render_template('carrinho.html')
+@app.route("/api/delete/carrinho", methods = ["DELETE"])
+def api_delete_carrinho():
+    if 'usuario_logado' in session:
+        codigo = request.json['codigo']
+        remover_item_carrinho(codigo)
+        carrinho = buscar_carrinho(session['usuario_logado']['user_name'])
+        return jsonify(carrinho), 200
+    else:
+        return jsonify({"message" : "Usuário não logado"}), 401
 
 app.run(host='0.0.0.0', port=8080, debug=True)
 
