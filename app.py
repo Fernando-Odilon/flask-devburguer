@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request, session, jsonify
 from model.burguer import recuperar_produtos
 from model.usuario import cadastrar_usuario, recuperar_users
-from model.carrinho import buscar_carrinho, remover_item_carrinho
+from model.carrinho import buscar_carrinho, remover_item_carrinho, adicionar_item_carrinho
 
 app = Flask(__name__)
 
@@ -30,7 +30,7 @@ def cadastrar_user():
     senha = request.form.get('password')
     senha_confirm = request.form.get('confirm-password')
     print(usuario, senha, senha_confirm)
-    if cadastrar_usuario(usuario, senha) and len(senha) < 6 and senha != senha_confirm:
+    if cadastrar_usuario(usuario, senha) and len(senha) < 6 and senha == senha_confirm:
         return redirect('/login')
     return redirect('/cadastrar')
 
@@ -74,6 +74,18 @@ def api_delete_carrinho():
         return jsonify(carrinho), 200
     else:
         return jsonify({"message" : "Usuário não logado"}), 401
+
+@app.route("/api/post/carrinho", methods = ["POST"])
+def api_add_carrinho():
+    if 'usuario_logado' in session:
+        dados = request.get_json()
+        codigo_produto = dados.get('codigo_produto')
+        quantidade = int(dados.get('quantidade'))
+        adicionar_item_carrinho(session['usuario_logado']['user_name'], codigo_produto, quantidade)
+        carrinho = buscar_carrinho(session['usuario_logado']['user_name'])
+        return jsonify(carrinho), 200
+    else:
+        return jsonify({'message' : "Usuário não logado"}), 401
 
 app.run(host='0.0.0.0', port=8080, debug=True)
 

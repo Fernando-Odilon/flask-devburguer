@@ -7,7 +7,7 @@ def recuperar_produtos(id = False):
         cursor.execute('SELECT codigo_produto, produto, descricao, preco, destaque, foto, disponibilidade FROM burguer;')
         produtos = cursor.fetchall()
     else:
-        cursor.execute('SELECT codigo_produto, produto, descricao, preco, destaque, foto, disponibilidade FROM burguer WHERE codigo = %s;', (id,))
+        cursor.execute('SELECT codigo_produto, produto, descricao, preco, destaque, foto, disponibilidade FROM burguer WHERE codigo_produto = %s;', (id,))
         produtos = cursor.fetchone()
     conexao.close()
     return produtos

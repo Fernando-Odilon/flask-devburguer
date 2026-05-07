@@ -21,15 +21,30 @@ def buscar_carrinho(usuario):
     conexao.close()
     return carrinho
 
+
+def adicionar_item_carrinho(usuario, codigo_produto, quantidade = 1):
+    conexao, cursor = conectar()
+    cursor.execute("SELECT codigo_carrinho FROM carrinho WHERE user_name = %s AND finalizado = 0 limit 1", (usuario,))
+    resultado_carrinho = cursor.fetchone()
+    if resultado_carrinho:
+        codigo_carrinho = resultado_carrinho['codigo_carrinho']
+        print(codigo_carrinho)
+    else:
+        cursor.execute("INSERT INTO carrinho(user_name) VALUES(%s)",(usuario,))
+        codigo_carrinho = cursor.lastrowid
+    print(codigo_carrinho)
+    cursor.execute("INSERT INTO itens_carrinho(cod_carrinho, cod_produto, quantidade) VALUES(%s, %s, %s)",(codigo_carrinho, codigo_produto, quantidade))
+    conexao.commit()
+    conexao.close()
+
+
 def remover_item_carrinho(codigo_item):
-    conexao, cursor = conectar() # Sua função de conexão
-    
-    # Deletamos pelo ID único da tabela itens_carrinho
+    conexao, cursor = conectar()
 
     cursor.execute("DELETE FROM itens_carrinho WHERE codigo_itens_carrinho = %s", (codigo_item,))
     
     conexao.commit()
-    cursor.close()
     conexao.close()
+
 
 

@@ -27,7 +27,7 @@
               alt="Lanche 1"
               class="category-item__img"
             />
-            <a href="/produto/{{produto.codigo}}" class="button button--small">EU QUERO</a>
+            <a href="/produto/{{produto.codigo_produto}}" class="button button--small">EU QUERO</a>
           </div>
           {% endif %}
         {% endfor %}
@@ -59,7 +59,7 @@
               <div class="card__footer">
                 <span class="card__price">R$ {{produto.preco}}</span>
                 <button class="button button--small">
-                  <a href="/produto/{{produto.codigo}}">Comprar</a></button>
+                  <a href="/produto/{{produto.codigo_produto}}">Comprar</a></button>
               </div>
             </div>
           </article>
@@ -83,7 +83,7 @@
         <div class="cart-sidebar__content" id="carrinho">
             <div style="width: 100%;" class="cart-item" >
                 <div class="cart-item__info">
-                    <p class="cart-item__name">Classic Dev</p>
+                    <p class="cart-item__name">{{produto}}</p>
                     <p class="cart-item__price">R$ 29,90</p>
                 </div>
                 <button id="removeItem" class="cart-item__remove material-symbols-outlined">

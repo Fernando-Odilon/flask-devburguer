@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block css_adicional %}
 <link rel="stylesheet" href="{{url_for('static', filename = 'src/css/produto.css')}}">
+
 {% endblock %}
 
 {% block conteudo %}
@@ -42,7 +43,7 @@
                     <input type="number" value="1" min="1" class="qty-input">
                     <button class="qty-btn">+</button>
                 </div>
-                <button class="button button--primary button--large">ADICIONAR AO CARRINHO</button>
+                <button onclick="adicionarItemCarrinho({{produto.codigo_produto}})" class="button button--primary button--large">ADICIONAR AO CARRINHO</button>
             </div>
             
             <div style="margin-top: 20px;">
@@ -50,6 +51,7 @@
             </div>
         </div>
     </div>
+<script src="../static/src/js/carrinho.js"></script>
 </section>
 
 {% endblock %}
