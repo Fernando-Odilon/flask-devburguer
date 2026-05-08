@@ -17,7 +17,6 @@ def index():
 @app.route('/produto/<codigo>')
 def produto(codigo):
     produto = recuperar_produtos(codigo)
-    print(produto)
     return render_template('./produto.html', produto = produto)
 
 @app.route('/cadastrar')
@@ -68,8 +67,9 @@ def api_get_carrinho():
 @app.route("/api/delete/carrinho", methods = ["DELETE"])
 def api_delete_carrinho():
     if 'usuario_logado' in session:
-        codigo = request.json['codigo']
-        remover_item_carrinho(codigo)
+        codigo = request.get_json()
+        print(codigo)
+        remover_item_carrinho(codigo['codigo'])
         carrinho = buscar_carrinho(session['usuario_logado']['user_name'])
         return jsonify(carrinho), 200
     else:
@@ -79,6 +79,7 @@ def api_delete_carrinho():
 def api_add_carrinho():
     if 'usuario_logado' in session:
         dados = request.get_json()
+        print(dados)
         codigo_produto = dados.get('codigo_produto')
         quantidade = int(dados.get('quantidade'))
         adicionar_item_carrinho(session['usuario_logado']['user_name'], codigo_produto, quantidade)

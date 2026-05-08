@@ -39,9 +39,9 @@
 
             <div class="product-details__actions">
                 <div class="quantity-selector">
-                    <button class="qty-btn">-</button>
-                    <input type="number" value="1" min="1" class="qty-input">
-                    <button class="qty-btn">+</button>
+                    <button id="menosQuantidade" class="qty-btn">-</button>
+                    <input  type="number" value="1" min="1" class="qty-input">
+                    <button id="maisQuantidade" class="qty-btn">+</button>
                 </div>
                 <button onclick="adicionarItemCarrinho({{produto.codigo_produto}})" class="button button--primary button--large">ADICIONAR AO CARRINHO</button>
             </div>
@@ -51,6 +51,32 @@
             </div>
         </div>
     </div>
+    <aside class="cart-sidebar" id="secao-carrinho">
+        <div class="cart-sidebar__header">
+            <h2 class="cart-sidebar__title">Meu Carrinho</h2>
+            <span class="material-symbols-outlined cart-sidebar__close" id="fechar">close</span>
+        </div>
+
+        <div class="cart-sidebar__content" id="carrinho">
+            <div style="width: 100%;" class="cart-item" >
+                <div class="cart-item__info">
+                    <p class="cart-item__name">{{produto}}</p>
+                    <p class="cart-item__price">R$ 29,90</p>
+                </div>
+                <button id="removeItem" class="cart-item__remove material-symbols-outlined">
+                  delete
+                </button>
+            </div>
+        </div>
+
+        <div class="cart-sidebar__footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="cart-total__value">R$ 0,00</span>
+            </div>
+            <button class="button button--primary cart-checkout-btn">Finalizar Pedido</button>
+        </div>
+    </aside>
 <script src="../static/src/js/carrinho.js"></script>
 </section>
 

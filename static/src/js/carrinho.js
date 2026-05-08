@@ -37,6 +37,7 @@ const carregarCarrinho = async () => {
 
     carrinho.innerHTML = '';
     const precoTotal = document.querySelector('.cart-total__value')
+    
     valorTotal = 0
     dados.forEach((dado) => {
         let linha = `
@@ -81,16 +82,27 @@ const deleteItemCarrinho = async (id) => {
         
     }
 }
+const quantidade = document.querySelector('.qty-input')
 
 
+if (quantidade) {
+    const btnQuantidadeMais = document.querySelector('#maisQuantidade').addEventListener('click', () => {
+        quantidade.value = parseInt(quantidade.value) + 1
+    })
+    const btnQuantidadeMenos = document.querySelector('#menosQuantidade').addEventListener('click', () => {
+        quantidade.value = parseInt(quantidade.value) - 1
+    })
+}
 
 const adicionarItemCarrinho = async (codigo_produto = 1) => {
-    const quantidade = document.querySelector('.qty-input').value
+    
+    
+    
     const resposta = await fetch(`/api/post/carrinho`, {method : 'POST',
         headers : {
             'Content-Type': 'application/json'},
         body : JSON.stringify({codigo_produto : codigo_produto,
-                            quantidade : quantidade})
+                            quantidade : quantidade.value})
                         })
          if (!resposta.ok){
         alert('Erro na hora de Inserir pai')

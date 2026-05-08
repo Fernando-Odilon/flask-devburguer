@@ -28,11 +28,9 @@ def adicionar_item_carrinho(usuario, codigo_produto, quantidade = 1):
     resultado_carrinho = cursor.fetchone()
     if resultado_carrinho:
         codigo_carrinho = resultado_carrinho['codigo_carrinho']
-        print(codigo_carrinho)
     else:
         cursor.execute("INSERT INTO carrinho(user_name) VALUES(%s)",(usuario,))
         codigo_carrinho = cursor.lastrowid
-    print(codigo_carrinho)
     cursor.execute("INSERT INTO itens_carrinho(cod_carrinho, cod_produto, quantidade) VALUES(%s, %s, %s)",(codigo_carrinho, codigo_produto, quantidade))
     conexao.commit()
     conexao.close()
